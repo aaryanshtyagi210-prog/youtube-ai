@@ -22,6 +22,12 @@ load_dotenv()
 YOUTUBE_API_KEY = os.getenv("YOUTUBE_API_KEY")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
+if not YOUTUBE_API_KEY:
+    YOUTUBE_API_KEY = st.secrets.get("YOUTUBE_API_KEY")
+
+if not GEMINI_API_KEY:
+    GEMINI_API_KEY = st.secrets.get("GEMINI_API_KEY")
+
 print("YouTube API Key loaded:", YOUTUBE_API_KEY is not None)
 print("Gemini API Key loaded:", GEMINI_API_KEY is not None)
 
