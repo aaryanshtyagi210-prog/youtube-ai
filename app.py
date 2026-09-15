@@ -13,6 +13,7 @@ from langchain_google_genai import (
 )
 
 
+
 # ============================================================
 # 1. LOAD API KEYS
 # ============================================================
@@ -21,12 +22,6 @@ load_dotenv()
 
 YOUTUBE_API_KEY = os.getenv("YOUTUBE_API_KEY")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-
-if not YOUTUBE_API_KEY:
-    YOUTUBE_API_KEY = st.secrets.get("YOUTUBE_API_KEY")
-
-if not GEMINI_API_KEY:
-    GEMINI_API_KEY = st.secrets.get("GEMINI_API_KEY")
 
 print("YouTube API Key loaded:", YOUTUBE_API_KEY is not None)
 print("Gemini API Key loaded:", GEMINI_API_KEY is not None)
@@ -241,7 +236,7 @@ print("FAISS vector database created!")
 # ============================================================
 
 llm = ChatGoogleGenerativeAI(
-    model="gemini-3-flash-preview",
+    model="gemini-3.6-flash",
     google_api_key=GEMINI_API_KEY,
     temperature=0
 )
